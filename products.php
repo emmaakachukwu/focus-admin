@@ -41,7 +41,7 @@ function shorten_sring(string $var): string {
             <th scope="col">Name</th>
             <th scope="col">Price</th>
             <th scope="col">Description</th>
-            <th scope="col">Created on</th>
+            <th scope="col">Created On</th>
             <th scope="col">Actions</th>
         </thead>
         <?php if ( count($products) ) { ?>
@@ -54,11 +54,11 @@ function shorten_sring(string $var): string {
                                 <img src="./uploads/products/<?php echo $products[$i]->image_path ?>" alt="<?php echo $products[$i]->name ?>" class="image-fluid">
                             <?php } ?>
                         </td>
-                        <td><?php echo  $products[$i]->name ?></td>
-                        <td><?php echo  $products[$i]->price ?></td>
-                        <td><?php echo  shorten_sring($products[$i]->description) ?></td>
-                        <td><?php echo  date('d M, Y h:i a', strtotime($products[$i]->created_at)) ?? '' ?></td>
-                        <td><button class="btn btn-light btn-sm">Edit</button></td>
+                        <td><?php echo $products[$i]->name ?></td>
+                        <td><?php echo $products[$i]->price ?></td>
+                        <td><?php echo shorten_sring($products[$i]->description) ?></td>
+                        <td><?php echo date('d M, Y h:i a', strtotime($products[$i]->created_at)) ?? '' ?></td>
+                        <td><button class="btn btn-primary btn-sm">Edit</button></td>
                     </tr>
                 <?php } ?>
             </tbody>
