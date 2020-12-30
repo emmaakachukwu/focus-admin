@@ -86,7 +86,17 @@ $title = ucfirst($title ?? 'Home');
 					</li>
 					<li>
 						<a href="./dashboard.php" class="dropdown-toggle no-arrow">
-							<span class="micon dw dw-house-1"></span><span class="mtext">Home</span>
+							<span class="micon dw dw-house-1"></span><span class="mtext">Dashboard</span>
+						</a>
+					</li>
+					<li>
+						<a href="./products.php" class="dropdown-toggle no-arrow">
+							<span class="micon dw dw-house-1"></span><span class="mtext">Products</span>
+						</a>
+					</li>
+					<li>
+						<a href="./dashboard.php" class="dropdown-toggle no-arrow">
+							<span class="micon dw dw-house-1"></span><span class="mtext">Deposits</span>
 						</a>
 					</li>
 					<li>

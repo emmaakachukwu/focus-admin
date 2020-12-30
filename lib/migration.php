@@ -1,7 +1,7 @@
 <?php
 
 $sql = "CREATE TABLE IF NOT EXISTS `users` (
-    `id` varchar(100) NOT NULL PRIMARY KEY,
+    `id` INT(50) NOT NULL PRIMARY KEY AUTO_INCREMENT,
     `email` varchar(100) NOT NULL,
     `username` varchar(100) NOT NULL,
     `role` VARCHAR(50) NOT NULL DEFAULT 'user',
@@ -14,16 +14,58 @@ $sql = "CREATE TABLE IF NOT EXISTS `users` (
     `phone` varchar(20) DEFAULT NULL,
     `balance` int(50) DEFAULT 0,
     `image_path` varchar(250) DEFAULT NULL,
+
     `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+    `updated_at` TIMESTAMP NULL
+)";
+$link->query($sql);
+
+$sql = "CREATE TABLE IF NOT EXISTS `products` (
+    `id` INT(50) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    `name` VARCHAR(100) NOT NULL,
+    `price` INT(50) NOT NULL,
+    `desc` MEDIUMTEXT NULL,
+    `image_path` varchar(250) NULL,
+    `deleted_at` TIMESTAMP NULL,
+
+    `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    `updated_at` TIMESTAMP NULL
+)";
+$link->query($sql);
+
+$sql = "CREATE TABLE IF NOT EXISTS `deposits` (
+    `id` INT(50) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    `user_id` INT(50) NOT NULL,
+    `amount` INT(50) NULL,
+    `approved_at` TIMESTAMP NULL,
+
+    FOREIGN KEY (`user_id`) REFERENCES `users`(`id`) ON DELETE CASCADE,
+
+    `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    `updated_at` TIMESTAMP NULL
+)";
+$link->query($sql);
+
+$sql = "CREATE TABLE IF NOT EXISTS `orders` (
+    `id` VARCHAR(100) NOT NULL PRIMARY KEY,
+    `user_id` INT(50) NOT NULL,
+    `product_id` INT(50) NOT NULL,
+    `quantity` INT(50) NOT NULL,
+    `paid` BOOLEAN DEFAULT TRUE,
+    `delivered_at` TIMESTAMP NULL,
+
+    FOREIGN KEY (`user_id`) REFERENCES `users`(`id`) ON DELETE CASCADE,
+    FOREIGN KEY (`product_id`) REFERENCES `products`(`id`) ON DELETE CASCADE,
+
+    `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    `updated_at` TIMESTAMP NULL
 )";
 $link->query($sql);
 
 $admin_email = 'admin@focus.com';
-$id = md5($admin_email . '...');
-$sql = "SELECT id FROM users WHERE id = '$id' LIMIT 1";
+$sql = "SELECT email FROM users WHERE email = '$admin_email' LIMIT 1";
 $result = $link->query($sql);
 if ( !$result->num_rows ) {
-    $sql = "INSERT INTO users (id, username, email, fname, lname, password, role) VALUES ('$id', 'focusshopadmin', '$admin_email', 'focus', 'shop', 'focuspass100', 'admin')";
+    $sql = "INSERT INTO users (username, email, fname, lname, password, role) VALUES ('focusshopadmin', '$admin_email', 'focus', 'shop', 'focuspass100', 'admin')";
     $link->query($sql);
 }
