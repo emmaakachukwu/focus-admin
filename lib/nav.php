@@ -38,6 +38,12 @@ $title = ucfirst($title ?? 'Home');
 
     <!-- SWEET ALERT -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+	<style>
+		table {
+			display: table !important;
+		}
+	</style>
 </head>
 <body>
 	<?php toast_errors() ?>
