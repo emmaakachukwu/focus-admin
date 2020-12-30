@@ -2,7 +2,7 @@
 $title = 'Deposits';
 require_once "./lib/nav.php";
 
-$sql = "SELECT d.*, u.username FROM deposits AS d LEFT JOIN users AS u ON d.user_id = u.id ORDER BY created_at DESC";
+$sql = "SELECT d.*, u.username FROM deposits AS d LEFT JOIN users AS u ON d.user_id = u.id ORDER BY d.created_at DESC";
 $result = $link->query($sql);
 $deposits = [];
 if ( $result->num_rows ) {
