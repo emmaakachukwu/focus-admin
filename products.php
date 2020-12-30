@@ -9,6 +9,10 @@ if ( $result->num_rows ) {
     while($res = $result->fetch_object())
         array_push($products, $res);
 }
+
+function shorten_sring(string $var): string {
+    return strlen($var) > 20 ? substr($var, 0, 20).'...' : $var;
+}
 ?>
 
 <div class="page-header">
@@ -52,7 +56,7 @@ if ( $result->num_rows ) {
                         </td>
                         <td><?php echo  $products[$i]->name ?></td>
                         <td><?php echo  $products[$i]->price ?></td>
-                        <td><?php echo  $products[$i]->description ?></td>
+                        <td><?php echo  shorten_sring($products[$i]->description) ?></td>
                         <td><?php echo  date('d M, Y h:i a', strtotime($products[$i]->created_at)) ?? '' ?></td>
                         <td><button class="btn btn-light btn-sm">Edit</button></td>
                     </tr>
