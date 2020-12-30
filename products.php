@@ -30,7 +30,7 @@ function shorten_sring(string $var): string {
             </nav>
         </div>
     </div>
-    <button class="btn btn-primary mt-4"><i class="fa fa-plus"></i> &nbsp; Add Product</button>
+    <a class="btn btn-primary text-white mt-4"><i class="fa fa-plus"></i> &nbsp; Add Product</a>
 </div>
 
 <div class="card-box pd-20 height-100-p mb-30">
@@ -58,7 +58,7 @@ function shorten_sring(string $var): string {
                         <td><?php echo $products[$i]->price ?></td>
                         <td><?php echo shorten_sring($products[$i]->description) ?></td>
                         <td><?php echo date('d M, Y h:i a', strtotime($products[$i]->created_at)) ?? '' ?></td>
-                        <td><button class="btn btn-primary btn-sm">Edit</button></td>
+                        <td><a class="btn btn-primary btn-sm text-white">Edit</a></td>
                     </tr>
                 <?php } ?>
             </tbody>

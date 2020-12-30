@@ -96,8 +96,18 @@ $title = ucfirst($title ?? 'Home');
 						</a>
 					</li>
 					<li>
+						<a href="./users.php" class="dropdown-toggle no-arrow">
+							<span class="micon dw dw-user-11"></span><span class="mtext">Users</span>
+						</a>
+					</li>
+					<li>
 						<a href="./products.php" class="dropdown-toggle no-arrow">
 							<span class="micon dw dw-house-1"></span><span class="mtext">Products</span>
+						</a>
+					</li>
+					<li>
+						<a href="./orders.php" class="dropdown-toggle no-arrow">
+							<span class="micon dw dw-exchange"></span><span class="mtext">Orders</span>
 						</a>
 					</li>
 					<li>
@@ -110,16 +120,6 @@ $title = ucfirst($title ?? 'Home');
 							<span class="micon dw dw-settings2"></span><span class="mtext">Settings</span>
 						</a>
 					</li>						
-					<li>
-						<a href="./users.php" class="dropdown-toggle no-arrow">
-							<span class="micon dw dw-user-11"></span><span class="mtext">Users</span>
-						</a>
-					</li>
-					<li>
-						<a href="./orders.php" class="dropdown-toggle no-arrow">
-							<span class="micon dw dw-exchange"></span><span class="mtext">Orders</span>
-						</a>
-					</li>
 					<li>
 						<div class="dropdown-divider"></div>
 					</li>
